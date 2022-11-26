@@ -15,4 +15,15 @@ wsl --unregister docker-desktop-data
 
 wsl --import docker-desktop-data E:\kindacode\ C:\Users\YOURUSERNAME\Desktop\data.tar --version 2
 
-//////////////////////////////////////
+////////////////////////////////////// Directory Change
+Lets consider the current default installation path for docker is at C:\Program Files\Docker, 
+and your target directory is at c:\Users\xxx\Docker , assuming the User Name is xxx.
+Note this target path could be on any drive such as 
+
+E:\Docker, and you have to create the directory before creating the junction.
+
+Open cmd as an adminstrator and run
+mklink /J "C:\Program Files\Docker" "c:\Users\xxx\Docker"
+
+Go ahead and install Docker. The installer will think it’s installing to
+C:\Program Files\Docker but the files would actually be populated into c:\Users\xxx\Docker.
